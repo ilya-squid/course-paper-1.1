@@ -2,6 +2,7 @@ import java.util.Objects;
 
 public class Employee {
     private static int idCounter = 1;
+
     private int id;
     private String fullName;
     private int department;
@@ -52,4 +53,16 @@ public class Employee {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Employee employee = (Employee) obj;
+        return id == employee.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
